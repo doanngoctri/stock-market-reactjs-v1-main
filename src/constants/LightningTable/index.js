@@ -1,0 +1,1 @@
+export const GIA = 1000

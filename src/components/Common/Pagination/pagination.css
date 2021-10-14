@@ -1,0 +1,73 @@
+.pagination {
+  justify-content: flex-end;
+  margin-inline-end: 1rem;
+  display: flex;
+}
+
+.pagination .previous {
+  width: 80px;
+  white-space: nowrap;
+  font-family: Helvetica Neue, Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  margin-right: 5px;
+}
+
+.pagination .previous a {
+  color: rgb(105, 156, 252);
+  
+}
+
+.disabled-btn a{
+  cursor: not-allowed;
+  color: rgb(209, 209, 209)!important;
+}
+
+.pagination .next {
+  width: 70px;
+  white-space: nowrap;
+  font-family: Helvetica Neue, Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  margin-left: 5px;
+
+}
+
+.pagination .next a {
+  color: rgb(105, 156, 252);
+  display: block;
+}
+
+.pagination .break {
+  display: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul.pagination li {
+  display: inline-block;
+  width: 40px;
+  border: 1px solid #e2e2e2;
+  display: flex;
+  justify-content: center;
+  padding: 4px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.numberPage {
+  color: rgb(105, 156, 252);
+}
+
+ul.pagination li.selected a {
+  color: white;
+}
+
+ul.pagination li.selected {
+  background-color: rgb(105, 156, 252);
+}

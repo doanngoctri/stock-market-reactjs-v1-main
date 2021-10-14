@@ -1,0 +1,203 @@
+
+/* ================================================== Begin style Header ============================================= */
+
+header {
+    background: var(--background-color-primary);
+    box-sizing: border-box;
+    padding: 5px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    color: #ededed;
+    z-index: 99;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    border-bottom: var(--border-bottom);
+}
+
+.header__left {
+    display: flex;
+}
+
+.header__right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* style left */
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    width: 80px;
+    height: auto;
+}
+
+.header__logo img {
+    margin-right: 10px;
+}
+
+/* style right */
+
+.header__right-theme, .header__right-language {
+    margin-right: 20px;
+    position: relative;
+}
+
+.header__right-theme-list, .header__right-language-list, .header__right-account-list {
+    position: absolute;
+    top: 27px;
+    background-color: var(--background-color-primary);
+    width: 150px;
+    display: none;
+}
+
+.header__right-language-list {
+    width: 170px;
+}
+
+.header__right-theme-item, .header__right-language-item {
+    padding: 12px 18px;
+    cursor: pointer;
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+.header__right-theme-item--active, .header__right-theme-item:hover, .header__right-language-item--active, .header__right-language-item:hover {
+    background-color: var(--background-color-active);
+    color: var(--color-white-active);
+    font-weight: 500;
+}
+
+.header__right-label-theme, .header__right-label-language {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 5px;
+    font-weight: 500;
+    font-size: 12px;
+    outline: none;
+    background: none;
+    border: none;
+    color: var(--color-white-active);
+    width: 110px;
+}
+
+.header__right-label-theme span, .header__right-label-language span {
+    width: 20px;
+    height: auto;
+}
+
+.header__right-label-language span {
+    margin-right: 5px;
+}
+
+.header__right-label-theme span {
+    margin-left: 5px;
+}
+
+.header__right-label-language i {
+    margin-left: 5px;
+    font-size: 12px;
+    font-style: normal;
+}
+
+.header__right-flag {
+    width: 20px;
+    height: auto;
+    display: inline-block;
+    margin-left: 6px;
+}
+
+.header__right-label-theme:hover .header__right-theme-list, .header__right-label-language:hover .header__right-language-list, .header__right-account-label:hover .header__right-account-list {
+    display: block;
+}
+
+.header__right-account-label {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.header__right-date, .header__right-realtime, .header__right-account-label {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.header__right-date-label {
+    font-size: 13px;
+    text-transform: capitalize;
+}
+
+.header__right-account {
+    position: relative;
+}
+
+.header__right-account-list {
+    position: absolute;
+    top: 27px;
+    background-color: var(--background-color-primary);
+    width: 200px;
+    right: 10px;
+    display: none;
+}
+
+.header__right-account-item {
+    padding: 10px;
+    border-bottom: 1px solid var(--text-color-primary);
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--color-white-active);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+
+.header__right-account-item:hover {
+    background-color: var(--background-color-body);
+}
+
+.header__right-account-item:first-child{
+    background-color: unset;
+    cursor: default;
+}
+
+.header__right-account-item:last-child {
+    border-bottom: none;
+}
+
+.header__right-account .header__right-flag {
+    background-color: white;
+    margin-left: 0;
+    margin-right: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ================================================== End style Header ============================================= */
+
+/* ========================================= Begin style Footer ===================================== */
+
+footer {
+    text-align: center;
+    color: var(--color-white-active);
+    font-size: 13px;
+    padding: 15px;
+    background: var(--background-color-primary);
+}
+.modal-footer {
+    text-align: center;
+    color: #000;
+    padding: 15px 0;
+}
+
+/* ========================================= End style Footer ===================================== */

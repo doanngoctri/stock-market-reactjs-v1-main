@@ -1,0 +1,2 @@
+export const FETCH_STATE = 'FETCH_STATE'
+export const CHANGE_STATE = 'CHANGE_STATE'

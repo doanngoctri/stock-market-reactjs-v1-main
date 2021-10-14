@@ -1,0 +1,355 @@
+html, body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-y: scroll;
+}
+
+.header__right-language {
+    margin-right: 20px;
+    position: relative;
+    color: black;
+}
+
+.header__right-language-list {
+    position: absolute;
+    top: 27px;
+    background-color: rgb(241, 241, 243);
+    width: 150px;
+    display: none;
+}
+
+.header__right-language-list {
+    width: 170px;
+}
+
+.header__right-language-item {
+    padding: 12px 18px;
+    cursor: pointer;
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 400;
+}
+
+.header__right-language-item--active, .header__right-language-item:hover {
+    background-color: var(--text-color-third);
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+}
+
+.header__right-label-language {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 5px;
+    font-weight: 500;
+    font-size: 12px;
+    outline: none;
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    width: 110px;
+}
+
+.header__right-label-language span {
+    width: 20px;
+    height: auto;
+}
+
+.header__right-label-language span {
+    margin-right: 5px;
+}
+
+.header__right-label-theme span {
+    margin-left: 5px;
+}
+
+.header__right-label-language i {
+    margin-left: 5px;
+    font-size: 12px;
+    font-style: normal;
+}
+
+.header__right-flag {
+    width: 20px;
+    height: auto;
+    display: inline-block;
+    margin-left: 6px;
+}
+
+.header__content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    padding: 20px 0;
+}
+
+.header__logo {
+    position: absolute;
+    left: 0;
+    top: 50%;
+}
+
+/* Main style */
+
+.main {
+    background-image: url(../images/login-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    margin: 0 auto;
+    min-width: 900px;
+    min-height: 600px;
+    /* padding: 100px; */
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+}
+
+.form-login {
+    display: block;
+    flex-direction: column;
+    margin: 150px auto;
+    padding: 20px;
+    border-radius: 7px;
+    background-color: rgb(241, 241, 243);
+}
+
+.form-title {
+    text-align: center;
+    position: relative;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+/* 
+.form-title::after {
+    position: absolute;
+    content: '';
+    width: 40%;
+    transform-origin: 50% 50%;
+    transform: translateX(-74%);
+    height: 1px;
+    right: 0;
+    top: 120%;
+    margin: 0 auto;
+    background-color: black;
+} */
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    width: 300px;
+    padding: 8px 30px;
+    margin-bottom: 15px;
+    border: #fff;
+    outline: none;
+    border-radius: 3px;
+}
+
+.username, .password {
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: 13px 15px;
+    background-position: 3% 45%;
+    padding-left: 36px;
+    margin-top: 10px;
+    cursor: auto;
+}
+
+.username {
+    background-image: url(../images/user-icon.png);
+}
+
+.password {
+    background-image: url(../images/password-icon.png);
+}
+
+.input-view {
+    position: relative;
+}
+
+.icon-error {
+    color: #d81e1e;
+    position: absolute;
+    font-size: 16px;
+    right: 8px;
+    top: 30%;
+    visibility: hidden;
+}
+
+.forgotPassword {
+    font-size: 13px;
+    text-decoration: underline;
+    color: gray;
+}
+
+.forgotPassword:hover {
+    color: #a32f2f;
+}
+
+#passLogin {
+    left: 487px;
+    top: 347px;
+}
+
+#userLogin {
+    left: 455px;
+    top: 290px;
+}
+
+.type-error {
+    color: #fff;
+    background-color: #BE6464;
+    border-radius: 3px;
+    display: inline-block;
+    font-size: 13px;
+    left: -999em;
+    opacity: 0;
+    padding: 9px 22px;
+    position: fixed;
+    pointer-events: none;
+    transition: opacity 0.3s ease-out;
+    top: -999em;
+    visibility: hidden;
+    z-index: 999;
+}
+
+.type-error::after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    right: -6px;
+    top: 50%;
+    margin-top: -4px;
+    border-left-color: #BE6464;
+    border-left-style: solid;
+    border-left-width: 6px;
+}
+
+[data-id]:after, [data-id]:before {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.type-error--show,.type-error--show::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+input:focus {
+    border: 1px solid rgb(132, 128, 145);
+}
+
+.forgotPassword {
+    text-align: right;
+    margin: 15px 0;
+}
+
+.btn-login {
+    margin: 10px auto 0px;
+    height: 36px;
+    width: 140px;
+    background-color: rgb(226, 33, 39);
+    border-radius: 3px;
+    display: block;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
+    transition: all 0.2s ease 0s;
+    color: rgb(255, 255, 255);
+}
+
+.btn-login:hover {
+    background-color: rgb(204, 23, 29);
+}
+
+/* copyright */
+
+.policy-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.btn-transfer {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    margin: 0 25px;
+}
+
+.round-icon {
+    margin-right: 5px;
+}
+
+.function-explain {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    padding-top: unset;
+    color: rgb(9, 24, 158) !important;
+}
+
+.open-account .round-icon {
+    background: url(../images/add-icon.png) 50% center / 10px no-repeat rgb(234, 247, 255);
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+}
+
+.register-account .round-icon {
+    background: url(../images/registration-icon.png) 50% center / 10px no-repeat rgb(234, 247, 255);
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+}
+
+.about-transfer .round-icon {
+    background: url(../images/term-trading.png) 50% center / 10px no-repeat rgb(234, 247, 255);
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+}
+
+.user-guide .round-icon {
+    background: url(../images/user-guide.png) 50% center / 10px no-repeat rgb(234, 247, 255);
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+}
+
+.copyright {
+    text-align: center;
+    background-color: rgb(148, 162, 189);
+    padding: 22px 0;
+    color: #fff;
+}

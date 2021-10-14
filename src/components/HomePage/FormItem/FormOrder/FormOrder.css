@@ -1,0 +1,10 @@
+button.btn-match {
+    position: fixed;
+    right: 10px;
+    top: 92%;
+    z-index: 1000;
+}
+
+.radio-btn-type{
+    margin-right: 1rem!important;
+}

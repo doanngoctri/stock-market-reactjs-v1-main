@@ -1,0 +1,7 @@
+.title-info:hover, .title-info-active {
+    background-color: #0092ff;
+}
+
+.title-info:hover a, .title-info-active a {
+    color: #fff!important;
+}

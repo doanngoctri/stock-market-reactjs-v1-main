@@ -1,0 +1,3 @@
+export const FETCH_STOCKS = 'FETCH_STOCKS'
+export const LIST_CHANGE_STOCKS = 'LIST_CHANGE_STOCKS';
+export const ORDER_STOCKS = 'ORDER_STOCKS';

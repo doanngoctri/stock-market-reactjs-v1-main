@@ -1,0 +1,29 @@
+.title-login {
+    font-weight: 600;
+    margin-bottom: 16px;
+    margin-left: 40px;
+    display: block;
+}
+
+.form-register {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.register .form-login{
+    width: 900px;
+}
+
+.form-child{
+    flex: 1;
+    margin: 0 1rem;
+}
+
+.register .ant-picker{
+    width: 100%;
+}
+
+.register .ant-form-item-label{
+    text-align: left;
+}
