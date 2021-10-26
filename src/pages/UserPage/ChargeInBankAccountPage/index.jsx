@@ -68,7 +68,7 @@ function ChargeInBankAccount() {
             fixed: 'center',
         },
         {
-            title: 'Tiền mua chờ thanh toán',
+            title: 'Tiền bán chờ thanh toán',
             dataIndex: 'choThanhToan',
             key: 'choThanhToan',
             width: 200,

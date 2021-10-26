@@ -17,7 +17,11 @@ import { boolean } from 'yup';
 const { Option } = Select;
 
 function HistoryAdvanceMoneyPage() {
-    const [data, setData] = useState([])
+    const [visible, setVisible] = useState(false);
+    const [phiUng,setPhiUng] = useState(0);
+    const [soTien,setSoTien] = useState(0);
+    const [data, setData] = useState([]);
+    const [ngayBan,setNgayBan] = useState(new Date());
     const [loading, setLoading] = useState(false)
     const [bankList,setBankList] = useState([])
     const [currentBank,setCurrentBank] = useState("")
@@ -191,7 +195,7 @@ function HistoryAdvanceMoneyPage() {
             fixed: 'center',
         }
     ]
-    const getListBankAccount = bankList.map((acc, index) => {
+    const getListBankAccount = bankList?.map((acc, index) => {
         return (
             <Option key={index} value={acc.stk}>{acc.stk}-{acc.nganHang.tenNganHang}</Option>
         )
@@ -208,8 +212,9 @@ function HistoryAdvanceMoneyPage() {
         )
     }
     const handleChangeDateAdvance = async (date) => {
+        setNgayBan(date);
         date = date.format('MM-DD-YYYY')
-        setLoading(true)
+        setLoading(true);
         try {
             const res = await callApi(`lenhung/${currentBank}/khadung?date=${date}`, 'GET', null)
             console.log(res.data)
@@ -221,6 +226,7 @@ function HistoryAdvanceMoneyPage() {
     }
     
     const handleVayTien = async (values) => {
+        console.log(values);
         var ngayBan = new Date(values.ngayBan.format('MM-DD-YYYY'))
         ngayBan.setHours(ngayBan.getHours() + 7);
         var content = {...values,stk: currentBank,ngayBan: ngayBan};
@@ -229,7 +235,6 @@ function HistoryAdvanceMoneyPage() {
             const res = await callApi(`lenhung`, 'post', content)
             console.log(res.data)
             if(res.data.data){
-                fetchData();
                 handleChangeDateAdvance(values.ngayBan);
             }
             else{
@@ -240,11 +245,45 @@ function HistoryAdvanceMoneyPage() {
         }
     }
 
-    const onFinishAdvance = (values) => {
-        handleVayTien(values).then(()=>{
-            fetchData(pagination);
-        });
+    const handleVayTienPopUp =  () => {
+        var lenh = {soTien,ngayBan};
+        console.log(lenh)
+        handleVayTien(lenh).then(()=>{ fetchData(pagination);});
     }
+
+    const onFinishAdvance = (values) => {
+        // handleVayTien(values).then(()=>{
+        //     fetchData(pagination);
+        // });
+        console.log('onFinishAdvance');
+        console.log(values);
+        
+    }
+
+    const showPopconfirm = () => {
+        //console.log(values);
+        callApi(`lenhung/phiung/${soTien}`, 'GET', null).then((res)=>{
+            setPhiUng(res.data.data);
+            setVisible(true);
+        });
+      };
+    
+      const handleOk = (values) => {
+        //setConfirmLoading(true);
+        handleVayTienPopUp();
+        setTimeout(() => {
+          setVisible(false);
+          //setConfirmLoading(false);
+        }, 2000);
+        console.log(soTien);
+        console.log(initCanvay);
+      };
+    
+      const handleCancel = () => {
+        console.log('Clicked cancel button');
+        setVisible(false);
+      };
+
     const initCanvay = {
         ngayBan: moment(new Date().toString()),
         soTien: 0,
@@ -264,7 +303,7 @@ function HistoryAdvanceMoneyPage() {
                                 ]}
                             >
                                 <Select style={{ width: 250 }} onChange={handleChangeBankAccount}
-                                    value={currentBank??'Chọn tài khoản'}>
+                                    defaultValue={"Tài Khoản Mặc Định"}>
                                     {getListBankAccount}
                                 </Select>
                             </Form.Item>
@@ -290,7 +329,7 @@ function HistoryAdvanceMoneyPage() {
                                         },
                                     ]}
                                 >
-                                    <InputNumber placeholder="Số tiền" />
+                                    <InputNumber placeholder="Số tiền" onChange = {(number) => setSoTien(number) }/>
                                 </Form.Item>
                             </Col>
                             <Col span={1}>
@@ -306,9 +345,16 @@ function HistoryAdvanceMoneyPage() {
                                         },
                                     }}
                                 >
-                                    <Button type="primary" htmlType="submit">
-                                        Ứng Tiền
-                                    </Button>
+                                    <Popconfirm
+                                        title={`Bạn có muốn ứng số tiền: ${soTien} với phí: ${phiUng}`}
+                                        visible={visible}
+                                        onConfirm={handleOk}
+                                        onCancel={handleCancel}
+                                    >
+                                        <Button type="primary" htmlType="submit" onClick={showPopconfirm}>
+                                            Ứng Tiền
+                                        </Button>
+                                    </Popconfirm>
                                 </Form.Item>
                             </Col>
                         </Row>
