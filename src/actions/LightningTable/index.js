@@ -34,3 +34,21 @@ const GetStock = stock => {
         stock
     }
 }
+
+
+
+export const FetchListStocksRequestLike = () => {
+    return (dispatch) => {
+        return callApi('yeuthich', 'GET', null).then(res => {
+            dispatch(FetchListStocksLike(res.data));
+        })
+    }
+}
+
+
+export const FetchListStocksLike = (stocks) => {
+    return {
+        type: types.FETCH_STOCKS_LIKE,
+        stocks
+    }
+}

@@ -5,8 +5,8 @@ header {
     background: var(--background-color-primary);
     box-sizing: border-box;
     padding: 5px;
-    position: fixed;
-    top: 0;
+    position: relative;
+    top : 6px;
     width: 100%;
     color: #ededed;
     z-index: 99;

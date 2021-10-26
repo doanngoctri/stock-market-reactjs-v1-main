@@ -7,7 +7,9 @@ import HeaderUser from './HeaderUser';
 function Header(props) {
   //const token = JSON.parse(localStorage.getItem("token"));
   return (
-    <header className="header topbar" id="header">
+    <header className="header topbar" id="header" style={{
+      position: ""
+    }}>
       <div className="header__left">
         <Link to="/" className="header__logo"><img src={ntnt} alt="" className="img-responsive" />iBoard</Link>
       </div>

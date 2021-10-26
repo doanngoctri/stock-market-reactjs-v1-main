@@ -13,6 +13,7 @@ import User from './User/User';
 import Report from './User/Report';
 import Status from './Common/Status';
 import BankAccount from './User/BankAccount';
+import LightningTableListLike from './Home/LightningTableListLike';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const myReducer = combineReducers({
@@ -26,7 +27,8 @@ const myReducer = combineReducers({
     BankAccount,
     Status,
     ManagementUser,
-    ManagementStock
+    ManagementStock,
+    LightningTableListLike
 });
 
 
