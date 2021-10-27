@@ -225,7 +225,7 @@ function LightningTable(props) {
             </div>
           </div>
           <Tabs defaultActiveKey={1} onChange={onClickKey}>
-            <TabPane tab="Cổ phiếu sàn HRS" key={1}></TabPane>
+            <TabPane tab="Cổ phiếu sàn HSX" key={1}></TabPane>
            {token ?  <TabPane tab="Cổ phiếu bạn đã thích" key={2}></TabPane> : null }
           </Tabs>
         </section>
