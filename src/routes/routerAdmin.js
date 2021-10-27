@@ -3,7 +3,8 @@ import RegisterForm from '../components/Admin/ManagementRegisterForm';
 import Stocks from '../components/Admin/ManagementStocks';
 import Users from '../components/Admin/ManagementUsers';
 import Backup from '../pages/AdminPage/ManageBackupPage';
-
+import Exchanges from '../components/Admin/ManagementExchanges';
+import Company from '../components/Admin/ManagementCompany';
 const routers = [
     {
         path: '/admin',
@@ -29,6 +30,16 @@ const routers = [
         path: '/admin/backup',
         exact: true,
         main: () => <Backup />
+    },
+    {
+        path: '/admin/quy-dinh-san',
+        exact: true,
+        main: () => <Exchanges />
+    },
+    {
+        path: '/admin/quy-dinh-cong-ty',
+        exact: true,
+        main: () => <Company />
     }
 ]
 
