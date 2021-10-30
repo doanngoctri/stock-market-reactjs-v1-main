@@ -28,9 +28,6 @@ export default function LeftMenu() {
                             <Link to="/admin/quy-dinh-cong-ty" className="left__title"> <GoldTwoTone />Quy định công ty</Link>
                         </li>
                         <li className="left__menuItem">
-                            <Link to="/admin/" className="left__title"> <GoldTwoTone />Backup and Restore</Link>
-                        </li>
-                        <li className="left__menuItem">
                             <Link to="/logout" className="left__title"><RightCircleTwoTone />Đăng Xuất</Link>
                         </li>
                     </ul>

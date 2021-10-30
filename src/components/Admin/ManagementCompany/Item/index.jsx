@@ -1,5 +1,6 @@
 import { EditOutlined } from "@ant-design/icons";
 import React from "react";
+import { format } from 'date-fns'
 
 export default function RegisterFormItem(props) {
   let { value, index } = props;
@@ -8,12 +9,13 @@ export default function RegisterFormItem(props) {
     props.setValue(value);
     props.setOpenMoal(true);
   }
+  let ngayApDung = new Date(value?.ngayApDung)
+  const dateString = format(ngayApDung, 'dd/MM/yyyy')
   return (
     <tr>
-      <td>{index +1 }</td>
       <td>{value?.maQd}</td>
       <td>{value?.tenQuyDinh}</td>
-      <td>{value?.ngayApDung}</td>
+      <td>{dateString}</td>
       <td>{value?.giaTri}</td>
       <td style={{
         cursor: 'pointer'

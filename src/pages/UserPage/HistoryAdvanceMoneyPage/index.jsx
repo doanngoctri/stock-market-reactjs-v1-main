@@ -309,11 +309,17 @@ function HistoryAdvanceMoneyPage() {
                             </Form.Item>
                         </Col>
                     </Row>
-                    
                     <Form onFinish={onFinishAdvance} initialValues={initCanvay}  name = 'vaytien'>
                         <Row gutter={40} style={{ margin: '1rem' }}>
                             <Col span={10}>
-                                <Form.Item name="ngayBan" label="Ngày Bán">
+                                <Form.Item name="ngayBan" label="Ngày Bán"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: 'Vui lòng chọn ngày',
+                                        },
+                                    ]}
+                                >
                                     <DatePicker placeholder='Chọn ngày' format={dateFormat} onChange={(date) => handleChangeDateAdvance(date)} />
                                 </Form.Item>
                             </Col>
@@ -359,7 +365,7 @@ function HistoryAdvanceMoneyPage() {
                             </Col>
                         </Row>
                     </Form>
-
+                    <h3>Lịch sử ứng tiền</h3>
                     <Form onFinish={onFinish} initialValues={worker} name = 'saoke'>
                         <Row gutter={40} style={{ margin: '1rem' }}>
                             

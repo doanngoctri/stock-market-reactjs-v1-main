@@ -10,7 +10,6 @@ export default function RegisterFormList(props) {
           <table>
             <thead>
               <tr>
-                <th>STT</th>
                 <th>Mã quy định</th>
                 <th>Tên quy định</th>
                 <th>Ngày áp dụng</th>
