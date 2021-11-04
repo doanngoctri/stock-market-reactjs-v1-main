@@ -81,7 +81,7 @@ function LightningTable(props) {
       ? filteredStocks.map((value, index) => {
           return (
             <LightningTableItem
-              listLike={LightningTableListLike}
+              listLike={[]}
               isKey={key}
               setPopup={setPopup}
               key={index}
@@ -160,6 +160,7 @@ function LightningTable(props) {
           });
 
   const checkUser = async () => {
+    console.log("check user");
     if (User === null) history.replace("/login");
     else {
       callApi("TaiKhoanNganHang", "GET", null).then((res) => {
@@ -173,7 +174,7 @@ function LightningTable(props) {
     setKey(e);
   };
   const onHanleLike = async () => {
-    if (!LightningTableListLike.includes(popup.value)) {
+    if (!popup.liked) {
       const res = await callApi("yeuthich", "post", {
           maCP : popup.value
       });
@@ -226,7 +227,7 @@ function LightningTable(props) {
           </div>
           <Tabs defaultActiveKey={1} onChange={onClickKey}>
             <TabPane tab="Cổ phiếu sàn HSX" key={1}></TabPane>
-           {token ?  <TabPane tab="Cổ phiếu bạn đã thích" key={2}></TabPane> : null }
+           {token ?  <TabPane tab="Danh mục cổ phiếu" key={2}></TabPane> : null }
           </Tabs>
         </section>
         <section className="table-light-wp">

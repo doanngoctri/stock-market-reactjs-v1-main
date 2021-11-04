@@ -20,7 +20,7 @@ const formItemLayout = {
 };
 function FormOrder(props) {
     const { isOpenFormOrder, bank_list, setIsOpenFormOrder, macp, setMacp } = props
-    console.log(macp);
+    //console.log(macp);
 
     // handle event
     // const user = useSelector(state => state.User)
@@ -31,6 +31,9 @@ function FormOrder(props) {
         nganhang: "",
         soDu: 0
     });
+
+    const [typeGG, setTypeGG] = useState(true);
+
     const [bankList, setBankList] = useState(bank_list);
     const [stocks, setStocks] = useState([]);
     // const [stock, setStock] = useState({ gia: null, giaTran: null, giaTC: null, giaSan: null, kl: null });
@@ -62,10 +65,10 @@ function FormOrder(props) {
         //     openNotificationError('Thất bại', 'Số tiền trong tài khoản không đủ', 3)
         //     return;
         // }
-        console.log(values);
+        //console.log(values);
         callApi("LenhDat/check", 'post', values).then(res => {
             let rec = res.data;
-            console.log(rec);
+            //console.log(rec);
             if (rec.status === 0) {
                 setOrder(values)
                 setVisibleConfirm(true)
@@ -111,7 +114,7 @@ function FormOrder(props) {
     }
     let tempValueStock = (id) => {
         let index = findIndexStock(id, LightningTableList)
-        console.log(index);
+        //console.log(index);
         if (index === -1)
             return null;
         let res = LightningTableList[index];
@@ -119,7 +122,7 @@ function FormOrder(props) {
     }
 
     let infoStock = tempValueStock(maCK)
-    console.log('mack ', maCK);
+    ////console.log('mack ', maCK);
     let tempValueBank = (id) => {
         let index = findIndex(id, bankList)
         if (index === -1)
@@ -158,6 +161,17 @@ function FormOrder(props) {
     }
     let onChangeListStock = (event) => {
         setMaCK(event)
+        ////console.log(typeGG);
+        if(typeGG == false){
+            //console.log(stocks);
+            let ck = stocks.find(s => s.maCp === event);
+            //console.log(ck);
+            //setOrder({...order,soLuong:ck.soLuong});
+            form.setFieldsValue({
+                soLuong: ck.soLuong,
+            });
+        }
+        
     }
     let onChangeListBank = (event) => {
         tempValueBank(event);
@@ -174,10 +188,11 @@ function FormOrder(props) {
             maCp: null,
         });
         fetchStocks(value)
+        setTypeGG(value);
     }
     const [form] = Form.useForm();
     let onChangeaOrderType = (event) => {
-        //console.log(event);
+        ////console.log(event);
         let type = event.target.value;
         if (type === 'ATO') {
             setVisibleATC(true)
@@ -210,7 +225,7 @@ function FormOrder(props) {
                 tempValueStock(macp)
             }
         } catch (error) {
-            console.log(error);
+            //console.log(error);
         }
     }
     return (
