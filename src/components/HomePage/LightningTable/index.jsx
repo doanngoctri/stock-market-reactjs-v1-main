@@ -277,7 +277,7 @@ function LightningTable(props) {
           </table>
         </section>
       </main>
-      <Button type="primary" className="btn-match" onChange={checkUser}>
+      <Button type="primary" className="btn-match" onClick={checkUser}>
         Đặt lệnh
       </Button>
       {isOpenFormOrder ? (
