@@ -39,9 +39,10 @@ function LightningTable(props) {
   const User = useSelector((state) => state.User);
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  useEffect(async () => {
     const hubConnection = new signalR.HubConnectionBuilder()
       .withUrl(Config.BASE_URL + "/signalr")
+      .withAutomaticReconnect()
       .configureLogging(signalR.LogLevel.Information)
       .build();
     hubConnection.on("message", (message) => {
@@ -49,7 +50,7 @@ function LightningTable(props) {
       console.log(json);
       dispatch(actionList.FetchChangeListStocks(json));
     });
-    hubConnection.start();
+    await hubConnection.start();
   }, []);
 
   useEffect(() => {
