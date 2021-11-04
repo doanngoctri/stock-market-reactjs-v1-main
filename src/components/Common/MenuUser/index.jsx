@@ -3,36 +3,36 @@ import React from 'react';
 import { Link, Route } from 'react-router-dom';
 const style = { padding: '8px 0', marginBottom: '1rem', textAlign: 'center', fontWeight: 'bold', display: 'block' };
 
-const menus = [
+export const menus = [
     {
         label: 'Chứng khoán hiện có',
-        to: '/chung-khoan-hien-co',
+        to: '/khach-hang/chung-khoan-hien-co',
         exact: true
     },
     {
         label: 'Số dư tiền ngân hàng',
-        to: '/so-du-tien-ngan-hang',
+        to: '/khach-hang/so-du-tien-ngan-hang',
         exact: true
     },
     {
         label: 'Lệnh trong ngày',
-        to: '/lenh-trong-ngay',
+        to: '/khach-hang/lenh-trong-ngay',
         exact: true
     },
     {
         label: 'Lịch sử đặt lệnh',
-        to: '/lich-su-dat-lenh',
+        to: '/khach-hang/lich-su-dat-lenh',
         exact: true
     },
     {
         label: 'Lịch sử khớp lệnh',
-        to: '/lich-su-khop-lenh',
+        to: '/khach-hang/lich-su-khop-lenh',
         exact: true
     }
     ,
     {
         label: 'Lịch sử lệnh Ứng',
-        to: '/lenh-ung',
+        to: '/khach-hang/lenh-ung',
         exact: true
     }
     ,
