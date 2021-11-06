@@ -181,7 +181,8 @@ function PurchasedOneDayPage() {
         else {
             openNotificationError('Thất bại', res.data.message, 2);
         }
-        fetchData(pagination);
+        setLoading(true)
+        setTimeout(() => fetchData(pagination), 1000);
         setDeleteVisible(false);
     }
     const handleTableChange = (pagination) => {
