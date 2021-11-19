@@ -218,7 +218,12 @@ function HistoryAdvanceMoneyPage() {
         try {
             const res = await callApi(`lenhung/${currentBank}/khadung?date=${date}`, 'GET', null)
             console.log(res.data)
-            setKhaDung(Formater(res.data.data));
+            if(res.data.status === -1){
+                setKhaDung(Formater(res.data.data));
+            }
+            else{
+                openNotificationError('Thất bại', res.data.message, 2);
+            }
             setLoading(false);
         } catch (error) {
             console.log(error);

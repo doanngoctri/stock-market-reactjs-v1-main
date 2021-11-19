@@ -1,5 +1,4 @@
 {
-    "appService.defaultWebAppToDeploy": "/subscriptions/5297aabb-563d-4a6c-a5a4-bf0d89450b72/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/chungkhoan-react-app",
     "appService.deploySubpath": ".",
     "appService.zipIgnorePattern": [
         "node_modules{,/**}",

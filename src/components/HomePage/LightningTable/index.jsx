@@ -69,7 +69,7 @@ function LightningTable(props) {
   const onHandleOrder = (macp) => {
     if (User === null) history.replace("/login");
     else {
-      callApi("TaiKhoanNganHang", "GET", null).then((res) => {
+      callApi("TaiKhoanNganHang/KhaDung", "GET", null).then((res) => {
         setBankList(res.data);
         setIsOpenFormOrder(true);
         setMacp(macp);
@@ -164,7 +164,7 @@ function LightningTable(props) {
     console.log("check user");
     if (User === null) history.replace("/login");
     else {
-      callApi("TaiKhoanNganHang", "GET", null).then((res) => {
+      callApi("TaiKhoanNganHang/KhaDung", "GET", null).then((res) => {
         setBankList(res.data);
         setIsOpenFormOrder(true);
       });

@@ -212,14 +212,17 @@ function FormOrder(props) {
 
     async function fetchStocks(value) {
 
+        console.log(value)
         try {
             if (value) {
                 let res = await callApi('CoPhieu?current=1&pageSize=1000', 'GET', null);
                 setStocks(res.data.list)
                 tempValueStock(macp)
             } else {
-                let res = await callApi('ChungKhoanHienCo?current=1&pageSize=1000', 'GET', null);
-                var filter = res.data.list.filter((stock)=>stock.soLuong>0);
+                let res = await callApi('ChungKhoanHienCo/KhaDung', 'GET', null);
+                console.log(res);
+                var filter = res.data.filter((stock)=>stock.soLuong>0);
+                console.log(filter);
                 setStocks(filter)
                 // setOrder({ ...order, maCp: '' })
                 tempValueStock(macp)

@@ -2,15 +2,9 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es6",
-    "baseUrl": "./src",
-    "noEmit": true
+    "baseUrl": "./src"
   },
   "include": [
     "src/**/*"
-  ],
-  "scripts": {
-    "build": "babel src -d lib",
-    "test": "jest"
-  },
-  "exclude": ["node_modules"]
+  ]
 }
